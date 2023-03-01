@@ -30,6 +30,9 @@ print("Part 6: Delete 'Cumbernauld' from the list by index")
 del stops[stops.index("Cumbernauld")]
 print(stops)
 
+# Or 
+# stops.pop(stops.index("Cumbernauld"))
+
 #7. Print the number of stops there are in the list
 print("Part 7: Print the number of stops there are in the list")
 print(len(stops))
