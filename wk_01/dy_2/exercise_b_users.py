@@ -57,6 +57,7 @@ users = {
 # 1. Get Jonathan's Twitter handle (i.e. the string `"jonnyt"`)
 
 print(users["Jonathan"]["twitter"])
+
 # 2. Get Erik's hometown
 print(users["Erik"]["home_town"])
 
