@@ -91,7 +91,7 @@ print(users["Erik"]["pets"])
 # # 10. Add another person to the users dictionary
 users["Jane"] =  {
         "twitter": "janey",
-        "lottery_numbers": [1, 2, 3, 4, 5, 6, 7],
+        "lottery_numbers": [1, 2, 3, 4, 5, 6],
         "home_town": "Moonville",
         "pets": [
             {
