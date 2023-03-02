@@ -38,3 +38,32 @@ def lend_money(p1, p2, amt):
     return None
 
 
+def all_favourite_foods(ppl):
+    all_foods = []
+
+    for person in ppl: 
+        all_this_persons_foods = person["favourites"]["snacks"]
+        all_foods += all_this_persons_foods
+
+    return all_foods
+
+def find_no_friends(ppl):
+    persons_with_no_friends = []
+
+    for person in ppl:
+        print(persons_with_no_friends)
+        persons_friends = person["friends"]
+        if len(persons_friends) == 0:
+            persons_with_no_friends.append(person)
+
+    return persons_with_no_friends
+
+def unique_favourite_tv_shows(ppl):
+    all_tv_shows = [] 
+
+    for person in ppl:
+        all_tv_shows.append(person["favourites"]["tv_show"])
+
+    all_tv_shows = list(set(all_tv_shows))
+    all_tv_shows.sort()
+    return all_tv_shows    

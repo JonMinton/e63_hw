@@ -123,7 +123,7 @@ class TestFriends(unittest.TestCase):
 
   # 8. Find the set of everyone's favourite food joined together
   # (hint: concatenate the favourites/snack lists together)
-  @unittest.skip("delete this line to run the test")
+  # @unittest.skip("delete this line to run the test")
   def test_favourite_foods(self):
     result = all_favourite_foods(self.people)
     expected = ["charcuterie", "soup", "bread", "Scooby snacks", "spaghetti", "ratatouille", "spinach"]
@@ -132,17 +132,19 @@ class TestFriends(unittest.TestCase):
 
   # 9. Find people with no friends
   # (hint: return a list, there might be more people in the future with no friends!)
-  @unittest.skip("delete this line to run the test")
+  # @unittest.skip("delete this line to run the test")
   def test_find_no_friends(self):
     self.assertEqual([self.person5], find_no_friends(self.people))
 
 
   # 10. Find the set of everyone's favourite tv shows joined together, with no duplicates
     # (hint: return a list of all favourite tv shows that only appear once)
-  @unittest.skip("delete this line to run the test")
+  #@unittest.skip("delete this line to run the test")
   def test_unique_favourite_tv_shows(self):
     result = unique_favourite_tv_shows(self.people)
     expected = ["Friends", "Baywatch", "Pokemon", "X-Files"]
+    expected.sort() # Added this to put in alphabetical order
     self.assertEqual(expected, result)
 
   # BONUS: Try to refactor the previous test and function to use Python's built-in set() function, returning an object of all unique tv shows.
+
