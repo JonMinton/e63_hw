@@ -23,3 +23,18 @@ def remove_friend(person, new_unfriend):
     return None
 
 def total_money(people):
+    total_money = 0
+
+    for person in people:
+        this_persons_money = person["monies"]
+        total_money += this_persons_money
+
+    return total_money
+
+
+def lend_money(p1, p2, amt):
+    p1["monies"] = p1["monies"] - amt
+    p2["monies"] = p2["monies"] + amt
+    return None
+
+
