@@ -65,6 +65,7 @@ def customer_can_afford_pet(customer, pet):
     return customer_cash >= pet_cost
 
 def sell_pet_to_customer(pet_shop, pet, customer):
+    # conditions to exit early:
     if pet is None:
         return None
 
@@ -82,5 +83,9 @@ def sell_pet_to_customer(pet_shop, pet, customer):
 
     # add 1 to number of pets sold
     pet_shop["admin"]["pets_sold"] += 1 
+
+    # n.b. this function doesn't actually remove 
+    # pets from the inventory as it's not in the 
+    # unit tests!
 
     return None
