@@ -97,6 +97,7 @@ def mug_customer(customer, mugger):
     customer_cash = customer["cash"]
     customer["cash"] = 0
     mugger["cash"] += customer_cash
+    mugger["karma"] -= 1
 
 def sell_pet_to_customer(pet_shop, pet, customer):
     # conditions to exit early:

@@ -7,7 +7,8 @@ class TestPetShop(unittest.TestCase):
         self.mugger = [
             {
                 "name" : "Muggy McMugface",
-                "cash" : 0
+                "cash" : 0,
+                "karma" : 0
             }
         ]
 
@@ -233,6 +234,8 @@ class TestPetShop(unittest.TestCase):
         self.assertEqual(1000, get_total_cash(self.cc_pet_shop))
 
     def test_mug_bob(self):
+        self.assertEqual(0, self.mugger[0]["karma"])
         mug_customer(self.customers[1], self.mugger[0])
         self.assertEqual(0, get_customer_cash(self.customers[1]))
         self.assertEqual(50, get_customer_cash(self.mugger[0]))
+        self.assertEqual(-1, self.mugger[0]["karma"])
