@@ -4,6 +4,13 @@ from src.pet_shop import *
 class TestPetShop(unittest.TestCase):
 
     def setUp(self):
+        self.mugger = [
+            {
+                "name" : "Muggy McMugface",
+                "cash" : 0
+            }
+        ]
+
         self.customers = [
             {
                 "name": "Alice",
@@ -224,3 +231,8 @@ class TestPetShop(unittest.TestCase):
         self.assertEqual(0, get_pets_sold(self.cc_pet_shop))
         self.assertEqual(50, get_customer_cash(customer))
         self.assertEqual(1000, get_total_cash(self.cc_pet_shop))
+
+    def test_mug_bob(self):
+        mug_customer(self.customers[1], self.mugger[0])
+        self.assertEqual(0, get_customer_cash(self.customers[1]))
+        self.assertEqual(50, get_customer_cash(self.mugger[0]))

@@ -22,12 +22,36 @@ def get_stock_count(pet_shop):
 def get_pets_by_breed(pet_shop, brd):
     return [x for x in pet_shop["pets"] if x["breed"] == brd]
 
+""" def get_pets_by_breed(pet_shop, breed):
+    found_pets = []
+    for pet in pet_shop["pets"]:
+        if pet["breed"] == breed:
+            found_pets.append(pet)
+    
+    return found_pets
+ """
+
 def find_pet_by_name(pet_shop, nm):
     pets = pet_shop["pets"]
     named_pet = [x for x in pets if x["name"] == nm]
     if len(named_pet) == 0:
         return None
     return named_pet[0]
+
+""" def find_pet_by_name(pet_shop, name):
+    for pet in pet_shop["pets"]:
+        if pet["name"] == name:
+            return pet
+ """ 
+
+""" def find_pet_by_name(pet_shop, nm):
+    found_pet = None
+    for pet in pet_shop["pets"]:
+        if pet["name"] == nm:
+            found_pet = pet
+
+    return found_pet
+ """
 
 def remove_pet_by_name(pet_shop, nm):
     pets = pet_shop["pets"]
@@ -40,6 +64,11 @@ def remove_pet_by_name(pet_shop, nm):
     pets.pop(pet_index)
 
     return None
+
+# The following is the suggested solution (which is better)
+# def remove_pet_by_name(pet_shop, name):
+#     pet_to_delete(find_pet_by_name(pet_shop, name))
+#     pet_shop["pets"].remove(pet_to_delete)
 
 def add_pet_to_stock(pet_shop, nw_pt):
     pet_shop["pets"].append(nw_pt)
@@ -64,6 +93,11 @@ def customer_can_afford_pet(customer, pet):
     pet_cost = pet["price"]
     return customer_cash >= pet_cost
 
+def mug_customer(customer, mugger):
+    customer_cash = customer["cash"]
+    customer["cash"] = 0
+    mugger["cash"] += customer_cash
+
 def sell_pet_to_customer(pet_shop, pet, customer):
     # conditions to exit early:
     if pet is None:
@@ -72,15 +106,15 @@ def sell_pet_to_customer(pet_shop, pet, customer):
     if customer_can_afford_pet(customer, pet) == False:
         return None
 
+    # EACH OF THE FOLLOWING CAN BE REPLACED BY AN EXISTING FUNCTION! 
+    # get the price 
     pet_price = pet["price"]
     # debit the customer 
     customer["cash"] -= pet_price
     # credit the pet shop
     pet_shop["admin"]["total_cash"] += pet_price
-
     # add pet to customer
     customer["pets"].append(pet)
-
     # add 1 to number of pets sold
     pet_shop["admin"]["pets_sold"] += 1 
 
@@ -88,4 +122,6 @@ def sell_pet_to_customer(pet_shop, pet, customer):
     # pets from the inventory as it's not in the 
     # unit tests!
 
+    # The following is not needed as None is returned 
+    # if return keyword is not used
     return None
