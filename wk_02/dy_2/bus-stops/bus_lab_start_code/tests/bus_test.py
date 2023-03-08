@@ -55,3 +55,18 @@ class TestBus(unittest.TestCase):
         self.bus.pick_up_from_stop(bus_stop)
         self.assertEqual(2, self.bus.passenger_count())
         self.assertEqual(0, bus_stop.queue_length())
+
+    def test_can_pick_up_all_passengers_from_bus_stop_at_once(self):
+        person_1 = Person("Alice", 50)
+        person_2 = Person("Brian", 40)
+        person_3 = Person("Cheryl", 30)
+
+        bus_stop = BusStop("Leith Walk")
+
+        bus_stop.add_to_queue(person_1)
+        bus_stop.add_to_queue(person_2)
+        bus_stop.add_to_queue(person_3)
+
+        self.assertEqual(3, bus_stop.queue_length())
+
+        # To be continued...
