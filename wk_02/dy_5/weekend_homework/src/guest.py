@@ -4,3 +4,7 @@ class Guest:
         self.wallet = wallet
         self.favourite_song = favourite_song
 
+    def song_is_favourite(self, song):
+        if self.favourite_song == song.name:
+            return f"{self.name}'s favourite song!"
+
