@@ -38,8 +38,14 @@ class CompoundInterestTest(unittest.TestCase):
 
     # Extention tests
 
-    # Should return 118,380.16 given 100 principal, 5 percent, 8 years, 1000 per month
-
+    # # Should return 118,380.16 given 100 principal, 5 percent, 8 years, 1000 per month
+    def test_advanced_scenario_01(self):
+        acalc_01 = CompoundInterest(100, 0.05, 8, 12, 1000)
+        acalc_01.calc_amounts_with_monthly_addition()
+        self.assertEqual(
+            118380.16,
+            round(acalc_01.return_end_amounts_with_monthly_addition(), 2) 
+        )
     # Should return 156,093.99 given 100 principal, 5 percent, 10 years, 1000 per month
 
     # Should return 475,442.59 given 116028.86, 7.5 percent, 8 years, 2006 per month
