@@ -10,21 +10,19 @@ class MatrixTest(unittest.TestCase):
 
     def test_given_one_returns_funny_one(self):
         matrix = Matrix("1")
-        # print(f"matrix contains: {matrix.mat}")
         self.assertEqual([[1]], matrix.mat)
 
     def test_given_two_elements_returns_okay(self):
         matrix = Matrix("1 2")
-        # print(f"matrix contains {matrix.mat}")
         self.assertEqual([[1, 2]], matrix.mat)
 
     def test_given_four_elements_on_two_rows_returns_okay(self):
         matrix = Matrix(self.sq_mat_string)
-        # print(f"matrix contains: {matrix.mat}")
         self.assertEqual([[1, 2], [3, 4]], matrix.mat)
-    # def test_extract_row_from_one_number_matrix(self):
-    #     matrix = Matrix("1")
-    #     self.assertEqual(matrix.row(1), [1])
+
+    def test_extract_row_from_one_number_matrix(self):
+        matrix = Matrix("1")
+        self.assertEqual(matrix.row(1), [1])
 
     # Test can extract a given row
     def test_can_extract_rows(self):
