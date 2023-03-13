@@ -28,6 +28,19 @@ class TestStocks(unittest.TestCase):
             {"Red Wine": 0, "Wheat Beer": 0, "Small Beer": 0, "Orange Juice": 0},
             self.stocks.stock_dict
         )
+    
+    def test_drink_price_lookup_generated_from_drinks(self):
+        self.assertEqual(
+            {"Red Wine": 3.00, "Wheat Beer": 6.50, "Small Beer": 1.50, "Orange Juice": 1.80},
+            self.stocks._drink_value
+        )
+
+    def test_can_calculate_total_stock_value(self):
+        self.assertEqual(0.0, self.stocks.calc_total_stock_value())
+        self.stocks.stock_drink("Wheat Beer", 2)
+        self.assertEqual(13.0, self.stocks.calc_total_stock_value())
+        self.stocks.stock_drink("Orange Juice", 1)
+        self.assertEqual(14.8, self.stocks.calc_total_stock_value())
 
     def test_stocks_are_initially_zero(self):
         self.assertEqual(0, sum(self.stocks.stock_dict.values()))
