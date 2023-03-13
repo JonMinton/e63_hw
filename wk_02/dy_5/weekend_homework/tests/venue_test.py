@@ -114,5 +114,14 @@ class TestVenue(unittest.TestCase):
         self.assertEqual(4, len(self.room1.guests))
 
 
-
+    def test_can_calculate_total_guests_in_venue_and_its_rooms(self):
+        self.assertEqual(0, self.venue.calc_total_num_of_guests())
+        self.venue.admit_guest(self.guest1)
+        self.assertEqual(1, self.venue.calc_total_num_of_guests())
+        self.venue.transfer_guest_to_room(self.guest1, self.room1)
+        self.assertEqual(1, self.venue.calc_total_num_of_guests())
+        self.venue.admit_guest(self.guest2)
+        self.assertEqual(2, self.venue.calc_total_num_of_guests())
+        self.venue.transfer_guest_to_room(self.guest2, self.room2)
+        self.assertEqual(2, self.venue.calc_total_num_of_guests())
 

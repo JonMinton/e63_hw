@@ -23,3 +23,10 @@ class Venue:
     def transfer_guest_from_room(self, guest, room):
         room.checkout_guest(guest)
         self.guests.append(guest)
+
+    def calc_total_num_of_guests(self):
+        total_guests = len(self.guests)
+        for x in self.rooms:
+            total_guests += len(x.guests)
+
+        return total_guests
