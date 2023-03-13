@@ -109,6 +109,9 @@ class TestVenue(unittest.TestCase):
         self.venue.transfer_guest_to_room(self.guest4, self.room1)
         self.assertEqual(1, len(self.venue.guests))
         self.assertEqual(4, len(self.room1.guests))
+        self.venue.transfer_guest_to_room(self.guest5, self.room1)
+        self.assertEqual(1, len(self.venue.guests))
+        self.assertEqual(4, len(self.room1.guests))
 
 
 
