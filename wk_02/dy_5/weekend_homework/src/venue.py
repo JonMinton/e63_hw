@@ -16,8 +16,9 @@ class Venue:
         self.guests.remove(guest)
 
     def transfer_guest_to_room(self, guest, room):
-        room.checkin_guest(guest)
-        self.guests.remove(guest)
+        if len(room.guests) < room.capacity:
+            room.checkin_guest(guest)
+            self.guests.remove(guest)
 
     def transfer_guest_from_room(self, guest, room):
         room.checkout_guest(guest)
