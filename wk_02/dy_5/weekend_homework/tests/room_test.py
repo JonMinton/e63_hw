@@ -34,6 +34,15 @@ class TestRoom(unittest.TestCase):
         self.room1.checkin_guest(self.guest3)
         self.assertEqual(1, len(self.room1.guests))
 
+    def test_cannot_checkout_guest_who_has_not_checked_in(self):
+        self.assertEqual(0, len(self.room1.guests))
+        self.room1.checkin_guest(self.guest1)
+        self.assertEqual(1, len(self.room1.guests))
+        self.room1.checkout_guest(self.guest2)
+        self.assertEqual(1, len(self.room1.guests))
+        self.room1.checkout_guest(self.guest1)
+        self.assertEqual(0, len(self.room1.guests))
+
     def test_can_remove_guests(self):
         self.room1.checkin_guest(self.guest1)
         self.room1.checkin_guest(self.guest2)
