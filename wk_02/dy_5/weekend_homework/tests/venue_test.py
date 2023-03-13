@@ -88,6 +88,28 @@ class TestVenue(unittest.TestCase):
         self.assertEqual(15.00, poor_guest.wallet)
         self.assertEqual(500.00, self.venue.till)
         self.assertEqual(0, len(self.venue.guests))
-        
+
+    def test_guests_cannot_enter_room_if_above_capacity(self):
+        self.assertEqual(0, len(self.venue.guests))
+        self.venue.admit_guest(self.guest1)
+        self.assertEqual(1, len(self.venue.guests))
+        self.assertEqual(0, len(self.room1.guests))
+        self.venue.transfer_guest_to_room(self.guest1, self.room1)
+        self.assertEqual(0, len(self.venue.guests))
+        self.assertEqual(1, len(self.room1.guests))
+
+        self.venue.admit_guest(self.guest2)
+        self.venue.admit_guest(self.guest3)
+        self.venue.admit_guest(self.guest4)
+        self.venue.admit_guest(self.guest5)
+        self.assertEqual(4, len(self.venue.guests))
+        self.assertEqual(1, len(self.room1.guests))
+        self.venue.transfer_guest_to_room(self.guest2, self.room1)
+        self.venue.transfer_guest_to_room(self.guest3, self.room1)
+        self.venue.transfer_guest_to_room(self.guest4, self.room1)
+        self.assertEqual(1, len(self.venue.guests))
+        self.assertEqual(4, len(self.room1.guests))
+
+
 
 
