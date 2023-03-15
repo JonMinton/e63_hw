@@ -1,0 +1,18 @@
+th {
+    font-size: larger;
+    border: 1px solid;
+    height: 2.5rem;
+}
+
+table {
+    background-color: lightgrey;
+    width: 80%;
+    border: 1px solid;
+    border-collapse: collapse;
+}
+
+td {
+    text-align: left;
+    border-left: 1px solid;
+    border-bottom: 1px dotted;
+}

@@ -5,18 +5,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="static/style.css">
 </head>
 <body>
-    <h1>Welcome {{ user_name }}!</h1>
+    <h1>Welcome!</h1>
 
     <h2>Table of orders</h2>
     <table>
         <tr>
-            <td>Title</td>
-            <td>Customer</td>
-            <td>Order Date</td>
-            <td>Quantity</td>
-            <td>Further details</td>
+            <th><b>Title</b></th>
+            <th><b>Customer</b></th>
+            <th><b>Order Date</b></th>
+            <th><b>Quantity</b></th>
+            <th><b>Further details</b></th>
         </tr>
         {% for order in order_list %}
         <tr>
