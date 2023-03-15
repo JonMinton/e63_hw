@@ -3,7 +3,6 @@ import unittest
 from src.stocks import Stocks
 from src.drink import Drink
 
-
 class TestStocks(unittest.TestCase):
     def setUp(self):
         self.drink1 = Drink("Red Wine", "Wine", 0.12, 3.00)
