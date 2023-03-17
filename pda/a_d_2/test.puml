@@ -1,0 +1,31 @@
+@startuml
+class Hen {
+    name: str
+    breed : str
+    age : flt
+    hunger: flt
+    thirst: flt
+    eggs_laid: int
+    eat()
+    poop()
+    cluck()
+    lay_egg()
+}
+
+class Hutch {
+    name: str
+    dimensions: [x : flt, y : flt, z : flt]
+    capacity: int
+    hens = []
+    feed = flt
+    water = flt
+    add_hen(<Hen>)
+    remove_hen(<Hen>)
+    calc_floorspace()
+    calc_volume()
+    add_feed(flt)
+    add_water(flt)
+}
+
+Hen --- Hutch
+@enduml
