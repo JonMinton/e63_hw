@@ -1,4 +1,4 @@
-@startuml
+@startuml two_classes
 class Hen {
     name: str
     breed : str

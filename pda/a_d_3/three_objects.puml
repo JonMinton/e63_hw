@@ -1,0 +1,32 @@
+@startuml three_objects_of_two_classes
+
+object "jblog: Blog" as jblog
+object "first_entry : Entry" as first_entry
+object "second_entry : Entry" as second_entry
+
+object first_entry {
+    name: "My first blog entry"
+    date_created: "10 April 2019"
+    contents: "Hello. This is my first blog entry"
+    times_viewed: 24
+}
+
+object second_entry {
+    name: "My second blog entry"
+    date_created: "4 January 2022"
+    contents: "Hi. This is my second entry."
+    times_viewed: 4
+}
+object jblog {
+    name: "Jon's Blog"
+    date_created: "6 April 2019"
+    first_entry: "10 April 2019"
+    last_entry: "4 January 2022"
+    entries: [first_entry, second_entry]
+
+}
+
+first_entry -- jblog
+second_entry -- jblog
+
+@enduml
