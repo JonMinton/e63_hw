@@ -15,7 +15,7 @@
                 <input type="submit" value="Donate Book">
             </form>
         <h2>Burn a book</h2>
-            <form action="/books" method="DELETE">
+            <form action="/books/delete" method="post">
                 <label for="book_name">Choose a book</label>
 
                 <select name="book_name" id="book_name">
@@ -31,12 +31,19 @@
             <ol>
                 {% for book in books %}
                     <li>
-                        {% if book.checked_out %}
-                          NOT AVAILABLE  
-                        {% else %}
-                          AVAILABLE  
-                        {% endif %}
-                        <a href='books/{{ books.index(book) }}'> {{book.title }}</a>
+                        <span>{% if book.checked_out %}
+                            <form action="/books/check_in" method = "post">
+                                <button name="check_in" type="submit" value='{{ books.index(book) }}'>Return Book</button>
+                            </form>
+                            {% else %}
+                            <form action="/books/check_out" method = "post">
+                                <button name="check_out" type="submit" value='{{ books.index(book) }}'>Check Out Book</button>
+                            </form>
+                            {% endif %}
+                        </span>
+                        <span>
+                            <a href='/books/{{ books.index(book) }}'> {{book.title }}</a>
+                        </span>
                     </li>    
                 {% endfor %}
             </ol>

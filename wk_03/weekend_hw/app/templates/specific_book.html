@@ -1,4 +1,13 @@
 {% extends 'base.html' %}
 {% block  content %}
     <h1>{{ this_book.title }}</h1>
+    <footer>
+        {% if this_index > 0 %}
+            <a href = '/books/{{this_index - 1}}'>Back</a>
+        {% endif %}
+        <a href = '/books'>Home</a>
+        {% if this_index < n_books %}
+            <a href = '/books/{{this_index + 1}}'>Forward</a>
+        {% endif %}
+    </footer>
 {% endblock  %}
