@@ -1,4 +1,18 @@
 body {
     background-color: black;
     color: wheat;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    width:90%;
+    align-content: center;
+}
+
+body header {
+    background-color: brown;
+    text-align: center;
+    padding: 2rem;
+}
+
+body footer {
+    background-color: crimson;
+    text-align:right
 }

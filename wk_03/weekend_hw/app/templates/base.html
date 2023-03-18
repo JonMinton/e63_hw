@@ -1,0 +1,16 @@
+<html>
+    <head>
+      <title>{{ title }} - My To-Do List</title>
+      <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+    </head>
+    <body>
+        <header>
+            <h1>Welcome to {{title}}</h1>
+            <p>With apologies to <a href = "https://weatherfactory.biz/cultist-simulator/">Cultist Simulator</a> and <a href="https://cultistsimulator.fandom.com/wiki/Cultist_Simulator_Wiki">the Cultist Simulator Wiki</a> </p>    
+        </header>
+        {% block content %}{% endblock %}
+        <footer>
+            Library scraped from the table on <a href="https://cultistsimulator.fandom.com/wiki/List_of_books">this page</a>
+        </footer>
+    </body>
+</html>
