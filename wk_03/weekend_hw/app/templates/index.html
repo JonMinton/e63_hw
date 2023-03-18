@@ -1,7 +1,49 @@
 {% extends 'base.html' %}
 {% block  content %}
-    <h1>My Library</h1>
-        <p>Nothing to see here yet</p>
-    <h2>High level summary</h2>
-        <p>There are {{ books.__len__() }} books in the library</p>
+    <header>
+        <h1>Welcome to {{title}}</h1>
+        <p>With apologies to <a href = "https://weatherfactory.biz/cultist-simulator/">Cultist Simulator</a> and <a href="https://cultistsimulator.fandom.com/wiki/Cultist_Simulator_Wiki">the Cultist Simulator Wiki</a> </p>    
+    </header>
+    <main>
+        <h2>High level summary</h2>
+            <p>There are {{ books.__len__() }} books in the library</p>
+        <h2>Donate a book</h2>
+            <form action="/books" method="post">
+                <label for="title">Title</label>
+                <input type="text" name="title" id="title">
+
+                <input type="submit" value="Donate Book">
+            </form>
+        <h2>Burn a book</h2>
+            <form action="/books" method="DELETE">
+                <label for="book_name">Choose a book</label>
+
+                <select name="book_name" id="book_name">
+                    {% for book in books %}
+                        <option value='{{ book.title }}'>{{ book.title }} </option>
+                    {% endfor %}
+                </select>
+
+                <input type = "submit" value="Burn the book!">
+            </form>
+        <h2>List of all books</h2>
+            <p>Here are all of the book titles</p>
+            <ol>
+                {% for book in books %}
+                    <li>
+                        {% if book.checked_out %}
+                          NOT AVAILABLE  
+                        {% else %}
+                          AVAILABLE  
+                        {% endif %}
+                        <a href='books/{{ books.index(book) }}'> {{book.title }}</a>
+                    </li>    
+                {% endfor %}
+            </ol>
+    </main>
+
+    <footer>
+        Library scraped from the table on <a href="https://cultistsimulator.fandom.com/wiki/List_of_books">this page</a>
+    </footer>
+
 {% endblock  %}
