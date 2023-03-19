@@ -1,6 +1,17 @@
 {% extends 'base.html' %}
 {% block  content %}
     <h1>{{ this_book.title }}</h1>
+    <p>
+        This book was written by {{ this_book.author}}. Its genre is {{ this_book.genre}}.
+        The book is 
+        <span>
+            {% if this_book.checked_out %}
+                currently checked out and so unavailable to borrow
+        {% else %}
+                currently available to borrow
+        {% endif %}
+        </span>
+    </p>
     <footer>
         {% if this_index > 0 %}
             <a href = '/books/{{this_index - 1}}'>Back</a>

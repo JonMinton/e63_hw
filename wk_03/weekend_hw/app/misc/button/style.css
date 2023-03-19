@@ -1,0 +1,38 @@
+body {
+    background-color: black;
+    color: whitesmoke;
+}
+
+.button {
+    display:flex; 
+    background-color: rgba(100,80,60,50);
+    border: 1px solid rgba(113, 147, 174, 0.814);
+    max-width: 30%;
+    min-width:100px;
+    text-align: left;
+    overflow: hidden;
+    margin: 0% 5%;
+}
+
+.button:hover {
+    background-color: rgb(98, 114, 114);
+    color:black; 
+}
+
+/* .button:active {
+    background-color:brown;
+}
+
+.button:visited {
+    background-color: brown;
+} */
+
+.collection {
+    max-height: 200px;
+    display: flex;
+    flex-direction: column-reverse;
+    flex-wrap: wrap;
+    background-color: blue;
+    justify-content: flex-end;
+    border-bottom: 10px darkred solid;
+}

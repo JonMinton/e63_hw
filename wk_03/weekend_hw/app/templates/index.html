@@ -6,11 +6,19 @@
     </header>
     <main>
         <h2>High level summary</h2>
-            <p>There are {{ books.__len__() }} books in the library</p>
+            <p>There are {{ books.__len__() }} books in the library.</p>
+            <p>Of these books, {{ n_checked_out }} are currently checked out.</p>
         <h2>Donate a book</h2>
             <form action="/books" method="post">
                 <label for="title">Title</label>
                 <input type="text" name="title" id="title">
+                
+                <label for="author">Author</label>
+                <input type="text" name="author" id="author">
+
+                <label for="genre">Genre</label>
+                <input type="text" name="genre" id="genre">
+
 
                 <input type="submit" value="Donate Book">
             </form>
@@ -28,25 +36,30 @@
             </form>
         <h2>List of all books</h2>
             <p>Here are all of the book titles</p>
-            <ol>
-                {% for book in books %}
-                    <li>
-                        <span>{% if book.checked_out %}
-                            <form action="/books/check_in" method = "post">
-                                <button name="check_in" type="submit" value='{{ books.index(book) }}'>Return Book</button>
-                            </form>
-                            {% else %}
-                            <form action="/books/check_out" method = "post">
-                                <button name="check_out" type="submit" value='{{ books.index(book) }}'>Check Out Book</button>
-                            </form>
-                            {% endif %}
-                        </span>
-                        <span>
-                            <a href='/books/{{ books.index(book) }}'> {{book.title }}</a>
-                        </span>
-                    </li>    
-                {% endfor %}
-            </ol>
+            {% for book in books %}
+                {% if books.index(book) // 9 == 0 and books.index(book) == 0 %}
+                    <section class="shelf">
+                {% elif books.index(book) // 9 != (books.index(book) - 1 ) // 9 %}
+                    </section>                    
+                    <section class="shelf">
+                {% endif %}
+                <article class="book">
+                    <span>
+                        <a href='/books/{{ books.index(book) }}'> {{book.title }}</a>
+                        {% if book.checked_out %}
+                        <form action="/books/check_in" method = "post">
+                            <button name="check_in" type="submit" value='{{ books.index(book) }}'>Return Book</button>
+                        </form>
+                        {% else %}
+                        <form action="/books/check_out" method = "post">
+                            <button name="check_out" type="submit" value='{{ books.index(book) }}'>Check Out Book</button>
+                        </form>
+                        {% endif %}
+                    </span>
+                </article>
+
+            {% endfor %}
+
     </main>
 
     <footer>

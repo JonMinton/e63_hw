@@ -16,3 +16,37 @@ body footer {
     background-color: crimson;
     text-align:right
 }
+
+.bookstack {
+    background-color: peachpuff;
+    display: flex;
+    flex-direction: column-reverse;
+    flex-wrap: wrap;
+    gap: 1px 10px;
+    
+}
+
+.book {
+    background-color: aqua;
+    border: black solid 2px;
+    max-width: 30%;
+    min-width:100px;
+    text-align: left;
+    overflow: hidden;
+    margin: 0% 5%;
+}
+
+.book:hover {
+    background-color: rgb(98, 114, 114);
+    color:black; 
+}
+.shelf {
+    max-height: 200px;
+    display: flex;
+    flex-direction: column-reverse;
+    flex-wrap: wrap;
+    background-color: blue;
+    justify-content: flex-end;
+    border-bottom: 10px darkred solid;
+    margin-top: 20px;
+}

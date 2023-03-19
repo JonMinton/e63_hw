@@ -17,7 +17,12 @@ all_books = lib_obj.library
 
 @app.route('/books')
 def index():
-    return render_template('index.html', title="Jon's Occult Library", books = all_books)
+    return render_template(
+        'index.html', 
+        title="Jon's Occult Library", 
+        books = all_books,
+        n_checked_out = sum([x.checked_out for x in all_books])
+    )
 
 @app.route('/')
 def root_index():
@@ -25,13 +30,20 @@ def root_index():
 
 @app.route('/books/<index>')
 def read(index):
-    return render_template('specific_book.html', this_book = all_books[int(index)], this_index = int(index), n_books = len(all_books))
+    return render_template(
+        'specific_book.html', 
+        this_book = all_books[int(index)], 
+        this_index = int(index), 
+        n_books = len(all_books)
+    )
 
 
 @app.route('/books', methods=['POST'])
 def add_book():
   bookTitle = request.form['title']
-  newBook = Book(title=bookTitle, author = "", genre = "", checked_out = False)
+  author    = request.form['author']
+  genre     = request.form['genre']
+  newBook = Book(title=bookTitle, author = author, genre = genre, checked_out = False)
   all_books.append(newBook)
 
   return redirect('/books')
