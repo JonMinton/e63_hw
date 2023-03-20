@@ -45,8 +45,8 @@ body footer {
     display: flex;
     flex-direction: column-reverse;
     flex-wrap: wrap;
-    background-color: blue;
+    background: radial-gradient(circle at center, rgb(151, 85, 151) 0, rgb(80, 28, 80), black);
     justify-content: flex-end;
-    border-bottom: 10px darkred solid;
+    border-bottom: 15px darkred solid;
     margin-top: 20px;
 }
