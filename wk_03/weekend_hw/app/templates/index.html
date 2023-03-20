@@ -59,6 +59,9 @@
                 </article>
 
             {% endfor %}
+            {% if books.__len__() // 9 == 0 %}
+                    </section>   
+            {% endif %}
 
     </main>
 

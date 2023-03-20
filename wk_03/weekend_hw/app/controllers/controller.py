@@ -34,7 +34,7 @@ def read(index):
         'specific_book.html', 
         this_book = all_books[int(index)], 
         this_index = int(index), 
-        n_books = len(all_books)
+        n_books = len(all_books) - 1
     )
 
 
