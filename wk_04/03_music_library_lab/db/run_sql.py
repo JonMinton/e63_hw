@@ -10,7 +10,7 @@ def run_sql(sql, values=None):
     results = [] 
     # try to connect to the db
     try:
-        conn = psycopg2.connect("dbname='taskmanager'")
+        conn = psycopg2.connect("dbname='music_manager'")
         # get cursor from the database
             #  This is an object that steps through rows
         cur = conn.cursor(cursor_factory=ext.DictCursor)

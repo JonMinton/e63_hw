@@ -19,19 +19,39 @@ artist4 = Artist("Guy Garvey")
 # * Create and Save Albums
 artist_repository.save(artist1)
 
+# # # * List All Artists/Albums (`select_all`)
+all_artists = artist_repository.select_all()
+
+for x in all_artists:
+    print(f"{x.name} has id {x.id}")
+
+
 
 # # * Delete all Artists / Albums
 
-# artist_repository.delete_all()
+artist_repository.delete_all()
 # album_repository.delete_all()
 
-# # * Find Artists/Albums by their ID (`select`)
-# artist_repository.get_by_id(id)
-# album_repository.get_by_id(id)
+all_artists = artist_repository.select_all()
 
-# # * List All Artists/Albums (`select_all`)
-# artist_repository.get_all()
-# album_repository.get_all()
+if len(all_artists) == 0:
+    print("Deletion worked :)")
+
+
+# # * Find Artists/Albums by their ID (`select`)
+
+artist_repository.save(artist2)
+artist_repository.save(artist3)
+
+all_artists_now = artist_repository.select_all()
+
+for x in all_artists_now:
+    print(f"{x.name} has id {x.id}")
+
+selected_new_artist = artist_repository.select_by_id(23)
+# print(len(all_new_artists))
+# print(selected_new_artist.name)
+
 
 
 # # Every artist should have a name, and each album should have a name/title, genre and artist.
