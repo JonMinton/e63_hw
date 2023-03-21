@@ -40,3 +40,12 @@ def select_by_id(id):
         result = results[0]
         artist = Artist(result['name'], result['id'] )
     return artist
+
+def get_valid_ids():
+    sql = "SELECT id from artists"
+    results = run_sql(sql)
+    ids = []
+    if results:
+        for row in results:
+            ids.append(row["id"])
+    return ids
