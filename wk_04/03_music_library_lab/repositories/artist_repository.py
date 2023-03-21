@@ -49,3 +49,19 @@ def get_valid_ids():
         for row in results:
             ids.append(row["id"])
     return ids
+
+def update(artist):
+
+    sql = """
+        UPDATE artists 
+            SET (name, id) 
+                = (%s, %s) 
+            WHERE id = %s
+    """
+    values = [
+        artist.name, artist.id,
+            artist.id
+    ]
+
+    run_sql(sql, values)
+

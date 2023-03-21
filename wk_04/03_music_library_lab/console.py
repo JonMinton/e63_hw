@@ -77,6 +77,15 @@ for row in albums_by_artist:
 
 
 # # * Edit Artists/Albums
+artist1.name = "Beddie Bedder"
+artist_repository.update(artist1)
+
+all_artists = artist_repository.select_all()
+
+for row in all_artists:
+    print(f"NAME: {row.name} has ID: {row.id}")
+
+
 # artist_repository.edit(id, new_values)
 # album_repository.edit(id. new_values)
 
