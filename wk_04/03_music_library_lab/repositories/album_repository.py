@@ -29,6 +29,11 @@ def delete_all():
     sql = "DELETE FROM albums"
     run_sql(sql)
 
+def delete(id):
+    sql = "DELETE FROM albums WHERE id = %s"
+    values = [id]
+    run_sql(sql, values)
+
 def select_by_id(id):
     artist = None
     sql = "SELECT * FROM albums WHERE id = %s"
@@ -64,3 +69,18 @@ def get_albums_by_this_artist(artist):
             this_album = Album(row["name"], row["genre"], artist, row["id"])
             albums.append(this_album)
         return albums
+    
+def update(album):
+
+    sql = """
+        UPDATE albums 
+            SET (name, genre, artist_id, id) 
+                = (%s, %s, %s, %s) 
+            WHERE id = %s
+    """
+    values = [
+        album.name, album.genre, album.artist.id, album.id,
+            album.id
+    ]
+
+    run_sql(sql, values)
