@@ -17,8 +17,8 @@ CREATE TABLE books (
 
 
 INSERT INTO 
-  authors ("id", "first_name", "last_name") 
-    VALUES(1, 'JK', 'Rowling');
+  authors ("first_name", "last_name") 
+    VALUES('JK', 'Rowling');
 
 -- INSERT INTO
 --   books ("id", "title", "genre", "year_published", "author_id")
@@ -26,80 +26,80 @@ INSERT INTO
 
 
 INSERT INTO 
-  books ("id", "title", "genre", "year_published", "author_id") 
-    VALUES(1, 'Harry Potter and the Philosopher''s Stone', 'Fantasy', 1997, 1);
+  books ("title", "genre", "year_published", "author_id") 
+    VALUES('Harry Potter and the Philosopher''s Stone', 'Fantasy', 1997, 1);
 
 INSERT INTO
-  books ("id", "title", "genre", "year_published", "author_id")
-    VALUES(2, 'Harry Potter and the Chamber of Secrets', 'Fantasy', 1998, 1);
+  books ("title", "genre", "year_published", "author_id")
+    VALUES('Harry Potter and the Chamber of Secrets', 'Fantasy', 1998, 1);
 
 INSERT INTO
-  books ("id", "title", "genre", "year_published", "author_id")
-    VALUES(3, 'Harry Potter and the Prisoner of Azkaban', 'Fantasy', 1999, 1);
+  books ("title", "genre", "year_published", "author_id")
+    VALUES('Harry Potter and the Prisoner of Azkaban', 'Fantasy', 1999, 1);
 
 INSERT INTO
-  books ("id", "title", "genre", "year_published", "author_id")
-    VALUES(4, 'Harry Potter and the Goblet of Fire', 'Fantasy', 2000, 1);
+  books ("title", "genre", "year_published", "author_id")
+    VALUES('Harry Potter and the Goblet of Fire', 'Fantasy', 2000, 1);
 
 INSERT INTO
-  books ("id", "title", "genre", "year_published", "author_id")
-    VALUES(5, 'Harry Potter and the Order of the Phoenix', 'Fantasy', 2003, 1);
+  books ("title", "genre", "year_published", "author_id")
+    VALUES('Harry Potter and the Order of the Phoenix', 'Fantasy', 2003, 1);
 
 INSERT INTO
-  books ("id", "title", "genre", "year_published", "author_id")
-    VALUES(6, 'Harry Potter and the Half-Blood Prince', 'Fantasy', 2005, 1);
+  books ("title", "genre", "year_published", "author_id")
+    VALUES('Harry Potter and the Half-Blood Prince', 'Fantasy', 2005, 1);
 
 INSERT INTO
-  books ("id", "title", "genre", "year_published", "author_id")
-    VALUES(7, 'Harry Potter and the Deathly Hallows', 'Fantasy', 2007, 1);
+  books ("title", "genre", "year_published", "author_id")
+    VALUES('Harry Potter and the Deathly Hallows', 'Fantasy', 2007, 1);
 
 
 INSERT INTO 
-  authors ("id", "first_name", "last_name") 
-    VALUES(2, 'JRR', 'Tolkien');
+  authors ("first_name", "last_name") 
+    VALUES('JRR', 'Tolkien');
 
 INSERT INTO
-  books ("id", "title", "genre", "year_published", "author_id")
-    VALUES(8, 'Sir Gawain & The Green Knight', 'Fantasy', 1925, 2);
+  books ("title", "genre", "year_published", "author_id")
+    VALUES('Sir Gawain & The Green Knight', 'Fantasy', 1925, 2);
 
 INSERT INTO
-  books ("id", "title", "genre", "year_published", "author_id")
-    VALUES(9, 'The Hobbit: or There and Back Again', 'Fantasy', 1937, 2);
+  books ("title", "genre", "year_published", "author_id")
+    VALUES('The Hobbit: or There and Back Again', 'Fantasy', 1937, 2);
 
 INSERT INTO
-  books ("id", "title", "genre", "year_published", "author_id")
-    VALUES(10, 'Farmer Giles of Ham', 'Fantasy', 1949, 2);
+  books ("title", "genre", "year_published", "author_id")
+    VALUES('Farmer Giles of Ham', 'Fantasy', 1949, 2);
 
 INSERT INTO
-  books ("id", "title", "genre", "year_published", "author_id")
-    VALUES(11, 'The Fellowship of the Ring: being the first part of The Lord of the Rings', 'Fantasy', 1954, 2);
+  books ("title", "genre", "year_published", "author_id")
+    VALUES('The Fellowship of the Ring: being the first part of The Lord of the Rings', 'Fantasy', 1954, 2);
 
 INSERT INTO
-  books ("id", "title", "genre", "year_published", "author_id")
-    VALUES(12, 'The Two Towers: being the second part of The Lord of the Rings', 'Fantasy', 1954, 2);
+  books ("title", "genre", "year_published", "author_id")
+    VALUES('The Two Towers: being the second part of The Lord of the Rings', 'Fantasy', 1954, 2);
 
 INSERT INTO
-  books ("id", "title", "genre", "year_published", "author_id")
-    VALUES(13, 'The Return of the King: being the third part of The Lord of the Rings', 'Fantasy', 1955, 2);
+  books ("title", "genre", "year_published", "author_id")
+    VALUES('The Return of the King: being the third part of The Lord of the Rings', 'Fantasy', 1955, 2);
 
 
 INSERT INTO 
-  authors ("id", "first_name", "last_name") 
-    VALUES(3, 'George R R ', 'Martin');  
+  authors ("first_name", "last_name") 
+    VALUES('George R R ', 'Martin');  
 
 INSERT INTO 
-  authors ("id", "first_name", "last_name") 
-    VALUES(4, 'AC', 'Grayling');
+  authors ("first_name", "last_name") 
+    VALUES('AC', 'Grayling');
 
 INSERT INTO 
-  authors ("id", "first_name", "last_name") 
-    VALUES(5, 'Steven', 'Pinker');
+  authors ("first_name", "last_name") 
+    VALUES('Steven', 'Pinker');
 
 INSERT INTO  
-  authors ("id", "first_name", "last_name") 
-    VALUES(6, 'Steven', 'Rose');
+  authors ("first_name", "last_name") 
+    VALUES('Steven', 'Rose');
 
 INSERT INTO 
-  authors ("id", "first_name", "last_name") 
-    VALUES(7, 'David', 'Graeber');
+  authors ("first_name", "last_name") 
+    VALUES('David', 'Graeber');
 

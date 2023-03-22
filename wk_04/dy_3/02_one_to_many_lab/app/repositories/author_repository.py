@@ -16,20 +16,20 @@ def save(author):
 def select_all():
     authors = []
 
-    sql = "SELECT * FROM users"
+    sql = "SELECT * FROM authors"
     results = run_sql(sql)
 
     if results:
         for row in results:
             author = Author(row['first_name'], row['last_name'], row['id'] )
-            users.append(author)
+            authors.append(author)
 
-        return users
+        return authors
 
 
 def select(id):
-    author = None
-    sql = "SELECT * FROM users WHERE id = %s"
+    author = []
+    sql = "SELECT * FROM authors WHERE id = %s"
     values = [id]
     results = run_sql(sql, values)
 
@@ -42,7 +42,7 @@ def select(id):
     else:
         return None
     
-    return Author
+    return author
 
 
 def delete_all():

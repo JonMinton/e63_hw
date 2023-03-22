@@ -6,11 +6,14 @@ import repositories.author_repository as author_repository
 
 def save(book):
     sql = "INSERT INTO books (title, genre, year_published, author_id) VALUES (%s, %s, %s, %s) RETURNING *"
-    values = [book.description, book.genre, book.year_pubished, book.author.id]
+    values = [book.title, book.genre, book.year_published, book.author.id]
+    for v in values:
+        print(v)
     results = run_sql(sql, values)
+    print(results)
     id = results[0]['id']
-    author.id = id
-    return author
+    book.id = id
+    return book
 
 
 def select_all():

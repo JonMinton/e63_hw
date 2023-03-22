@@ -1,0 +1,28 @@
+body {
+    background-color: aquamarine;
+}
+
+.menu {
+    display: flex;
+    padding: 10px;
+    background-color: rgb(49, 141, 148);
+    color: white;
+  
+}
+
+.menu li{
+    padding-right: 10px;
+    list-style: none;
+    color: white;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif   ; font-size: 16px;
+}
+
+.menu li a {
+    text-decoration: none;
+    color:white;
+}
+  
+.menu li a:hover {
+    text-decoration: wavy;
+    color: wheat;
+}

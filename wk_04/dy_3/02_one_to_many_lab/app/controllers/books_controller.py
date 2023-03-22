@@ -9,19 +9,20 @@ books_blueprint = Blueprint("books", __name__)
 @books_blueprint.route("/books")
 def books():
     books = book_repository.select_all() # NEW
-    return render_template("/books/index.html", all_books = books)
+    return render_template("/books/index.html", books = books)
 
 # NEW
 # GET '/books/new'
 @books_blueprint.route("/books/new", methods=['GET'])
 def new_book():
-    books = book_repository.select_all()
-    return render_template("/books/new.html", all_books = books)
+    authors = author_repository.select_all()
+    return render_template("/books/new.html", authors = authors)
 
 # CREATE
 # POST '/books'
 @books_blueprint.route("/books",  methods=['POST'])
 def create_book():
+    print(request.form)
     title           = request.form['title']
     author_id       = request.form['author_id']
     genre           = request.form['genre']
