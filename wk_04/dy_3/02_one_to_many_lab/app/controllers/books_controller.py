@@ -58,7 +58,7 @@ def update_book(id):
     year_published  = request.form['year_published']
     author          = author_repository.select(author_id)
     book            = Book(title, genre, year_published, author, id)
-    book_repository.save(book)
+    book_repository.update(book)
     return redirect('/books')
 
 # DELETE
