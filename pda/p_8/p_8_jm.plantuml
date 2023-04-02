@@ -1,0 +1,20 @@
+@startuml two_objects_of_two_classes
+
+object "Jon Minton: Customer" as jcust
+object "000_001 : Account" as jaccount
+
+object jcust {
+    name: "Jon Minton"
+    customer_type: "Personal"
+}
+
+object jaccount {
+    name: "000_001"
+    date_created: "4 January 2022"
+    balance: 402.20
+
+}
+
+jcust -- jaccount
+
+@enduml

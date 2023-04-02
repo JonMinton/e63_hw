@@ -1,0 +1,16 @@
+@startuml
+
+(*) --> "Enter account page"
+    --> "Select merchant"
+    --> "Enter item price"
+    if "price does not exceed account balance" then
+        --> [True] "Subtract item price from account budget" 
+        --> "Add item price to merchant revenue" 
+        --> "Increment number of items sold by merchant by one" 
+        --> "Add transaction to transactions table" 
+        -right-> (*)
+    else 
+        -->[False] (*)
+    endif
+ 
+@enduml

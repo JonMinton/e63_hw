@@ -1,0 +1,20 @@
+@startuml
+left to right direction 
+
+actor Customer as u
+actor Merchant as m
+
+package website {
+    usecase "Register as customer" as c1
+    usecase "Open account" as c2
+    usecase "Enter account" as c3
+    usecase "Register as merchant" as m1
+    usecase "Buy from merchant" as c4
+}
+
+u --> c1
+u --> c2
+u --> c3
+m --> m1
+u --> c4
+@enduml
