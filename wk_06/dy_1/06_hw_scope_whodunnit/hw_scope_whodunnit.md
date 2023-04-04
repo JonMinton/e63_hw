@@ -20,6 +20,7 @@ const scenario = {
   weapon: 'Rope'
 };
 
+
 const declareMurderer = function() {
   return `The murderer is ${scenario.murderer}.`;
 }
