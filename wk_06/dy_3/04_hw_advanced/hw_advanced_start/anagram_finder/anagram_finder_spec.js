@@ -27,7 +27,7 @@ describe('AnagramFinder', function () {
     assert.deepStrictEqual(anagramFinder.findAnagrams(['DiscOUnteD']), ['DiscOUnteD']);
   });
 
-  it('should not detect a word as it\'s own anagram', function () {
+  it('should not detect a word as its own anagram', function () {
     const anagramFinder = new AnagramFinder('javascript');
     assert.deepStrictEqual(anagramFinder.findAnagrams(['javascript']), []);
   });
