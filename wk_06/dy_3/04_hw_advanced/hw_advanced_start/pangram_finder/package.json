@@ -1,7 +1,6 @@
 {
   "name": "pangram_finder",
   "version": "1.0.0",
-  "description": "",
   "main": "pangram_finder.js",
   "scripts": {
     "test": "mocha pangram_finder_spec.js"
@@ -9,7 +8,8 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "dependencies": {
-    "mocha": "^5.0.1"
+  "description": "",
+  "devDependencies": {
+    "mocha": "^10.2.0"
   }
 }
