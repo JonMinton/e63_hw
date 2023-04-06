@@ -1,0 +1,33 @@
+body {
+  font-family: Palatino;
+}
+
+#form-wrapper {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+#reading-list {
+  display: flex;
+}
+
+.to-read-entry {
+  background-color: bisque;
+  display: flex;
+  border: 1px solid black;
+  flex-direction: column;
+  max-width: 5rem;
+}
+
+.to-read-item {
+  color: red;
+}
+
+
+
+ul {
+  list-style-type: none;
+  margin: 1rem;
+  padding: 0;
+}
