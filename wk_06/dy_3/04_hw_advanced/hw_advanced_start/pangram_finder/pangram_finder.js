@@ -34,7 +34,5 @@ PangramFinder.prototype.isPangram = function () {
   } else {
     return false
   }
-
 }
-
 module.exports = PangramFinder;
