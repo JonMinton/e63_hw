@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 
 import FilmsBox from "../components/filmsbox";
 import MoreBox from "../components/morebox";
+import AddFilmBox from '../components/addfilmbox';
 
 const FilmsReleases = () => {
 
@@ -35,6 +36,11 @@ const FilmsReleases = () => {
         ]
     )
 
+    const addFilm = film => {
+      film.id = Date.now()
+      setFilms([...films, film])
+  }
+
     return (
         <>
             <h2>Upcoming film releases for UK</h2>
@@ -42,6 +48,7 @@ const FilmsReleases = () => {
             <FilmsBox films = {films}/>
             <hr/>
             <MoreBox/>
+            <AddFilmBox onFilmSubmit = {addFilm}></AddFilmBox>
         </>  
     );
 }
