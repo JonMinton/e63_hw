@@ -13,7 +13,7 @@ const BrewBox = () => {
 
     const [beers, setBeers] = useState([])
     const [favouriteBeers, setFavouriteBeers] = useState([])
-    const [selectedBeer, setSelectedBeer] = useState([])
+    const [selectedBeer, setSelectedBeer] = useState(null)
 
     useEffect(() => {
         fetchBeers();
@@ -69,8 +69,12 @@ const BrewBox = () => {
 
     }
 
-    const handleSelectBeer = function(beer){
-        console.log("handleSelectBeer toggled")
+    const handleSelectBeer = function(id){
+        console.log("handleSelectBeer triggered")
+
+        const beerToFocusOn = beers.find(beer => beer.id === id)
+        console.log(`The selected beer is ${beerToFocusOn.name}`)
+        setSelectedBeer(beerToFocusOn)
     }
 
 

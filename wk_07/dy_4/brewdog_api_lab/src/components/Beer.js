@@ -2,7 +2,6 @@ import './Beer.css'
 
 const Beer = ({id, name, favourite, handleToggleBeerFavourited, handleSelectBeer}) => {
 
-    console.log(`id: ${id}; favourite: ${favourite}`)
 
     const handleMakeFavourite = () => {
         console.log("handleMakeFavourite triggered")
@@ -15,16 +14,27 @@ const Beer = ({id, name, favourite, handleToggleBeerFavourited, handleSelectBeer
 
     }
 
+    const handleBeerSelected = () => {
+        console.log("handleBeer triggered")
+        handleSelectBeer(id)
+    }
+
+    const showFavouriteStatus = () => {
+        if (handleToggleBeerFavourited !== null) {
+            return (
+                favourite ? 
+                <span onClick = {handleMakeUnfavourite} className="Make-Beer-Unfavourite">   UNFAVOURITE   </span> : 
+                <span onClick = {handleMakeFavourite} className="Make-Beer-favourite">   FAVOURITE   </span>
+            )
+        } 
+    }
 
     return (
     <div className="Beer">
         <span>
-            This beer is called {name}
-                {
-                    favourite ? 
-                    <span onClick = {handleMakeUnfavourite} className="Make-Beer-Unfavourite">   UNFAVOURITE   </span> : 
-                    <span onClick = {handleMakeFavourite} className="Make-Beer-favourite">   FAVOURITE   </span>
-                }
+            <span onClick = {handleBeerSelected}>This beer is called {name}</span>
+                {showFavouriteStatus()}
+
         </span>
     </div>  );
 }

@@ -2,7 +2,7 @@ import './FavouriteBeers.css'
 
 import Beer from './Beer';
 
-const FavouriteBeers = ({beers, handleToggleBeerFavourited, handleSelectBeer}) => {
+const FavouriteBeers = ({beers, handleSelectBeer}) => {
 
     // Add call to Beer here
     const iterateBeerCalls = () => {
@@ -11,7 +11,7 @@ const FavouriteBeers = ({beers, handleToggleBeerFavourited, handleSelectBeer}) =
                 <Beer 
                     key = {beer.id} 
                     name = {beer.name} 
-                    handleToggleBeerFavourited = {handleToggleBeerFavourited}
+                    handleToggleBeerFavourited = {null}
                     handleSelectBeer = {handleSelectBeer}
                 />
     
