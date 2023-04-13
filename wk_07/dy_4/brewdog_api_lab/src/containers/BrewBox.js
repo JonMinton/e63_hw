@@ -12,6 +12,8 @@ import './BrewBox.css';
 const BrewBox = () => {
 
     const [beers, setBeers] = useState([])
+    const [favouriteBeers, setFavouriteBeers] = useState([])
+    const [selectedBeer, setSelectedBeer] = useState([])
 
     useEffect(() => {
         fetchBeers();
@@ -31,28 +33,65 @@ const BrewBox = () => {
                     return (
                         {
                             id : id,
-                            name : name
+                            name : name,
+                            favourite : false
                         }
                     )
                 })
             
                 setBeers(fetchedBeersFull)
             })
+    }
+
+    const handleToggleBeerFavourited = function(id) {
+        console.log("handleToggleBeerFavourited triggered")
+        const beerToFocusOn = beers.find(beer => beer.id === id)
+        const indexOfBeerToFocusOn = beers.findIndex(beer => beer.id === id)
+        console.log(`The beer to toggle favourite status is ${beerToFocusOn.name}`)
+
+        let tempBeers = [...beers];
+        const favStatus = beerToFocusOn.favourite
+
+        favStatus ? beerToFocusOn.favourite = false : beerToFocusOn.favourite = true
+
+        tempBeers[indexOfBeerToFocusOn] = beerToFocusOn;
+        setBeers(tempBeers)
+
+        if (!favStatus) {
+            let tempFavouriteBeers = [...favouriteBeers]
+            tempFavouriteBeers.push(beerToFocusOn)
+            setFavouriteBeers(tempFavouriteBeers)
+        } else {
+            let tempFavouriteBeers = [...favouriteBeers]
+            tempFavouriteBeers.pop(tempFavouriteBeers.findIndex(beer => beer.id === id))
+            setFavouriteBeers(tempFavouriteBeers)
+        }
 
     }
 
-
+    const handleSelectBeer = function(beer){
+        console.log("handleSelectBeer toggled")
+    }
 
 
     return (
     <div className="BrewBox">
         <h2>BrewBox</h2>
         <HeaderBox />
-        <SelectedBeer />
-        <FavouriteBeers />
-        <AllBeers beers = {beers}/>
+        <SelectedBeer selectedBeer = {selectedBeer}/>
+        <FavouriteBeers 
+            beers = {favouriteBeers}
+            handleToggleBeerFavourited = {handleToggleBeerFavourited}
+            handleSelectBeer = {handleSelectBeer}
+        />
+        <AllBeers 
+            beers = {beers} 
+            handleToggleBeerFavourited = {handleToggleBeerFavourited}
+            handleSelectBeer = {handleSelectBeer}
+        />
         <InfoBox />
-    </div>  );
+    </div>  
+    );
 }
  
 export default BrewBox;

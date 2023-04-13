@@ -1,3 +1,11 @@
 .Beer {
     background-color: rgba(165, 42, 42, 0.20);
 }
+
+.Make-Beer-Favourite {
+    color: red;
+}
+
+.Make-Beer-Unfavourite {
+    color: darkgreen;
+}
