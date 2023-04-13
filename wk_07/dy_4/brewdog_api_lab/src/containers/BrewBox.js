@@ -63,7 +63,7 @@ const BrewBox = () => {
             setFavouriteBeers(tempFavouriteBeers)
         } else {
             let tempFavouriteBeers = [...favouriteBeers]
-            tempFavouriteBeers.pop(tempFavouriteBeers.findIndex(beer => beer.id === id))
+            tempFavouriteBeers.splice(tempFavouriteBeers.findIndex(beer => beer.id === id), 1)
             setFavouriteBeers(tempFavouriteBeers)
         }
 
