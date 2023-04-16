@@ -1,98 +1,68 @@
-import { saveAs } from 'file-saver'
+import allXkcds from '/Users/JonMinton/e63_hw/wk_07/dy_5/xkcd_app/src/data/xkcds.json/allXkcds.json';
 
 
-
-import React, { useState, useEffect, useRef } from 'react';
-
+import React, { useState, useEffect} from 'react';
 
 import "./XkcdBox.css"
 
+import HeaderBox from '../components/HeaderBox';
+import ComicsList from '../components/ComicsList';
+import ShowActiveComic from '../components/ShowActiveComic';
+import YearSelect from '../components/YearSelect';
+
 const XkcdBox = () => {
 
+    const [completeXkcds, setCompleteXkcds] = useState([])
     const [xkcds, setXkcds] = useState([])
-    
-    const [currentPage, setCurrentPage] = useState(1)
-    const [maxPage, setMaxPage] = useState(0)
+    const [activeComic, setActiveComic] = useState(null)
+    const [years, setYears] = useState([])
 
-    // https://xkcd.com/2763/info.0.json
 
-    useEffect( 
+    useEffect(
         () => {
-            fetchLastComicJson()
-        }, [] // This should happen once, on initalisation
+            setCompleteXkcds(allXkcds)
+            console.log(`Initial useEffect call. Total collection of ${completeXkcds.length} elements`)
+        },
+        []
     )
 
     useEffect(
         () => {
+            setXkcds(completeXkcds)
+            console.log(`Second useEffect call. Subset collection of ${xkcds.length} elements`)
+            const allYears = [...new Set(completeXkcds.map(comic => comic.year))]
+            setYears(allYears)
+        },
+        [completeXkcds]
+    )
 
+
+    const changeActiveComic = (indx) => {
+        setActiveComic(xkcds[indx])
+    }
+
+    const handleYearFilter = (yr) => {
+        if (yr === "") {
+            console.log("handleYearFilter called with all years")
+            setXkcds(completeXkcds)
+            setActiveComic(null)
+        } else {
+            console.log(`handleYearFilter called with year ${yr}`)
+            const subsetComics = completeXkcds.filter(comic => comic.year === yr)
+            setXkcds(subsetComics)
+            setActiveComic(null)
         }
-    )
-
-    useEffect(
-        () => {
-            fetchComicJson(currentPage)
-        }, [maxPage] // This should happen once, after initialisation
-    )
-
-    useEffect(
-        () => {
-            fetchComicJson(currentPage)
-        }, [xkcds] // This should happen many but not infinite times
-    )
-
-    const saveFileSoFar = (data) => {
-        let blob = new Blob([JSON.stringify(data)], { type: 'application/json' })
-        saveAs(blob, '/Users/JonMinton/e63_hw/wk_07/dy_5/xkcd_app/export.json')        
-    } 
-
-
-
-    const fetchComicJson = (page) => {
-        fetch(`https://cors-anywhere.herokuapp.com/https://xkcd.com/${page}/info.0.json`)
-            .then(res => {
-                console.log(currentPage)
-                if (res.ok) {
-                    return res.json()
-                }
-                throw new Error("Something went wrong fetching - too many requests?")
-            })
-            .then(res => {
-                setXkcds([...xkcds, res])
-                setCurrentPage(currentPage + 1)
-            })
-            .then(() => {
-                setTimeout(null, 500)
-            })
-            .catch((error) => {
-                console.log(error, "on", currentPage)
-                saveFileSoFar(xkcds)
-                setTimeout(fetchComicJson, 10000)
-            })
-    }
-
-    const fetchLastComicJson = () => {
-        fetch('https://cors-anywhere.herokuapp.com/https://xkcd.com/info.0.json')
-            // .then(res => console.log(res))
-            .then(res => res.json())
-            .then(res => {
-                setMaxPage(res.num)
-            })
-            // .then(res => console.log(res.num))
-    }
-
-    const handleOnClick = () => {
-        fetchComicJson(1);
-    }
-
-    const handleOnClickLatest = () => {
-        fetchLastComicJson()
     }
 
     return (
         <div className = "XkcdBox">
+            <HeaderBox/>
             <h2>XkcdBox</h2>
-            <p onClick={handleOnClick}>Click me to fetch all comics</p>
-            <p onClick={handleOnClickLatest}>Click for last comic</p>
+            <p> There are {xkcds.length} elements in the array</p>
+            <ComicsList comics = {xkcds} changeActiveComic={changeActiveComic}/>
+            <YearSelect years = {years} handleYearFilter = {handleYearFilter}/>
+            {activeComic && <p>Active comic name: {activeComic.title}</p>}
+            {activeComic && <ShowActiveComic comic={activeComic}/> }  
         </div>
       );
 }

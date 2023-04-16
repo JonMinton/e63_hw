@@ -1,0 +1,8 @@
+.ShowActiveComic {
+    border: solid 2px;
+    margin: auto;
+}
+
+.ShowActiveComic > img {
+    margin: auto;
+}
