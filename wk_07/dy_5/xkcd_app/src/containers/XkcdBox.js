@@ -1,4 +1,4 @@
-import allXkcds from '/Users/JonMinton/e63_hw/wk_07/dy_5/xkcd_app/src/data/xkcds.json/allXkcds.json';
+import allXkcds from '/Users/JonMinton/e63_hw/wk_07/dy_5/xkcd_app/src/data/allXkcds.json';
 
 
 import React, { useState, useEffect} from 'react';

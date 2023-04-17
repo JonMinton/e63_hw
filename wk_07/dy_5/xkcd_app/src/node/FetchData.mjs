@@ -8,7 +8,7 @@ async function fetchXkcds() {
   const json = await res.json();
   const numPages = json.num;
 
-  const directory = path.join(new URL('/Users/JonMinton/e63_hw/wk_07/dy_5/xkcd_app/src/data', import.meta.url).pathname, 'xkcds.json')
+  const directory = path.join(new URL('/Users/JonMinton/e63_hw/wk_07/dy_5/xkcd_app/src/data', import.meta.url).pathname)
 
   // Step 2: create an array to store all xkcd objects
   const allXkcds = [];
