@@ -1,0 +1,24 @@
+@startuml two_more_objects_of_two_classes
+
+object "Ali's Journal 7: Book" as abook
+object "page_208 : page" as p208
+
+object p208 {
+    empty: false
+    completed: false
+    entries: [entry_1035]
+}
+
+
+object abook {
+    name: "Alastair's Journal - Book 7"
+    volume: 7
+    date_started: "7 March 2023"
+    date_finished: Null
+    num_pages: 256
+    pages: [page1, page2, ..., page256]
+}
+
+p208 -- abook
+
+@enduml
