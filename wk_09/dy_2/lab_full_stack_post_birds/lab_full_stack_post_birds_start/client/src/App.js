@@ -4,7 +4,7 @@ import './App.css';
 
 import SightingsForm from "./SightingsForm";
 import SightingsGrid from "./SightingsGrid";
-import { getSightings } from "./SightingService";
+import { getSightings, deleteSighting } from "./SightingService";
 
 function App() {
 
@@ -16,14 +16,28 @@ function App() {
     })
   }, []);
 
+
+
+
+
   const addSighting = (sighting) => {
     setBirdSightings([...birdSightings, sighting]);
   }
 
+
+
   const removeSighting = (id) => {
-    const sightingsToKeep = birdSightings.filter(sighting => sighting._id !== id)
-    setBirdSightings(sightingsToKeep);
+    deleteSighting(id)
+    .then( () => {
+      let temp = birdSightings.map(s => s);
+      const toDel = birdSightings.map( s => s._id).indexOf(id)
+      temp.splice(toDel, 1)
+      setBirdSightings(temp)
+    })
   }
+
+
+
 
   return (
     <>
