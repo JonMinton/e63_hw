@@ -26,3 +26,18 @@ export const deleteSighting = (id) => {
     })
 }
 
+export const updateSighting = (id, payload) => {
+    return fetch(baseURL + id, {
+        method: 'PUT',
+        body: JSON.stringify(payload),
+        headers: { 'Content-Type': 'application/json'}
+    })
+    .then(res => res.json())
+    .then(data => {
+      return {
+        ...data, // { _id: <> }
+        ...payload // { name: <> }
+      }
+    })
+}
+
