@@ -7,10 +7,10 @@ import static org.junit.Assert.assertEquals;
 
 public class PrinterTest {
     
-    Printer printer; 
+    private Printer printer;
     
     @Before
-    public void before(){ 
+    public void setUp(){
         printer = new Printer(200, 1000);
     }
     

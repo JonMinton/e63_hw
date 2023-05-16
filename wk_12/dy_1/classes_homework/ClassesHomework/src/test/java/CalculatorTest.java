@@ -6,10 +6,10 @@ import static org.junit.Assert.assertEquals;
 
 public class CalculatorTest {
 
-    Calculator calculator;
+    private Calculator calculator;
 
     @Before
-    public void before() {
+    public void setUp() {
         calculator = new Calculator();
     }
 
