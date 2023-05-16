@@ -12,9 +12,9 @@ public class Printer {
 
     public void print(int numSheetsToPrint, int numCopies){
         int totalSheets = numSheetsToPrint * numCopies;
-        if (this.numSheets >= totalSheets) {
-            this.numSheets = this.numSheets - totalSheets;
-            this.toner = this.toner - totalSheets;
+        if (this.numSheets >= totalSheets && this.toner >= totalSheets) {
+            this.numSheets -= totalSheets;
+            this.toner     -= totalSheets;
         }
     }
     public int getNumSheets() {

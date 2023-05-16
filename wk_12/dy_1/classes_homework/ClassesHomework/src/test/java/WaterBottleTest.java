@@ -1,4 +1,5 @@
 import org.example.WaterBottle;
+
 import org.junit.Before;
 import org.junit.Test;
 
@@ -42,7 +43,18 @@ public class WaterBottleTest {
         waterBottle.fill();
         assertEquals(100, waterBottle.getVolume());
     }
+
+    @Test
+    public void cannotDrinkWhenNoWater(){
+        waterBottle.empty();
+        assertEquals(0, waterBottle.getVolume());
+        waterBottle.drink();
+        assertEquals(0, waterBottle.getVolume());
+    }
+
 }
+
+
 
 
 //    Water Bottle

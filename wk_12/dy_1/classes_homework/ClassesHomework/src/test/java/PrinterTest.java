@@ -1,5 +1,5 @@
-
 import org.example.Printer;
+
 import org.junit.Before;
 import org.junit.Test;
 
