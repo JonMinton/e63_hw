@@ -77,9 +77,20 @@ public class LibraryTest {
         assertEquals(2, library.getStockSize());
     }
 
+    @Test
+    public void canSeeGenreFrequencyIsCorrect() {
+        System.out.println(book1.getGenre());
+        library.addBook(book1);
+        Integer thisGenreFrequency = library.checkGenreFrequency("Historical Frequency");
+        System.out.println(thisGenreFrequency);
+
+    }
+
 
 }
 
 //    Write a method to count the number of books in the library.
 //        Write a method to add a book to the library stock.
 //        Add a capacity to the library and write a method to check if stock is full before adding a book.
+
+//The library wants to keep track of its number of books by genre. Using a HashMap, store the genre of each book as the key - and a count of how many books of that genre as the value.
