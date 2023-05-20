@@ -2,9 +2,9 @@ package staff;
 
 public abstract class Employee {
 
-    String name;
-    String niNumber;
-    double salary;
+    private String name;
+    private String niNumber;
+    private double salary;
 
     public Employee(String name, String niNumber, double salary){
         this.name = name;
@@ -37,7 +37,6 @@ public abstract class Employee {
     public void changeName(String newName) {
         if (!newName.isEmpty()){
             this.name = newName;
-
         }
     }
 }
