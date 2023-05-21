@@ -1,6 +1,7 @@
 import org.junit.Before;
 import org.junit.Test;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 
 import static org.junit.Assert.assertEquals;
@@ -34,7 +35,7 @@ public class FlightTest {
 
         Plane plane = new Plane(PlaneTypes.ATR_72);
 
-        flight = new Flight(pilots, crew, plane, "Blah001", AirportLocation.EDI, AirportLocation.DUB, "2018-04-20");
+        flight = new Flight(pilots, crew, plane, "Blah001", AirportLocation.EDI, AirportLocation.DUB, LocalDateTime.now());
 
     }
 
@@ -53,6 +54,50 @@ public class FlightTest {
 
         assertEquals(PlaneTypes.ATR_72.getCapacity() - 2, flight.returnSeatsAvailable());
 
+    }
+
+    @Test
+    public void bookingPassengerIncrementsSeatIndex() {
+        pass1 = new Passenger("LL", 10);
+        Passenger pass2 = new Passenger("JJ", 5);
+
+        assertEquals(0, flight.getPlane().getCurrentSeatIndex());
+        flight.addPassenger(pass1);
+        assertEquals(1, flight.getPlane().getCurrentSeatIndex());
+
+        flight.addPassenger(pass2);
+        assertEquals(2, flight.getPlane().getCurrentSeatIndex());
+    }
+
+    @Test
+    public void afterAssigningToPlanePassSeatNumbersAreAsExpected() {
+        pass1 = new Passenger("LL", 10);
+        Passenger pass2 = new Passenger("JJ", 5);
+
+        assertEquals(0, pass1.getSeatCode());
+        flight.addPassenger(pass1);
+        assertEquals(28, pass1.getSeatCode());
+
+        flight.addPassenger(pass2);
+        assertEquals(6, pass2.getSeatCode());
+    }
+
+    @Test
+    public void seatCodesAreFirstComeFirstServed() {
+        pass1 = new Passenger("LL", 10);
+        Passenger pass2 = new Passenger("JJ", 5);
+        flight.addPassenger(pass2);
+        assertEquals(28, pass2.getSeatCode());
+        flight.addPassenger(pass1);
+        assertEquals(6, pass1.getSeatCode());
+
+    }
+    @Test
+    public void whenPassengersAddedToFlightPassengerHasFlight() {
+        pass1 = new Passenger("LL", 10);
+        assertEquals(null, pass1.getPassengerFlight());
+        flight.addPassenger(pass1);
+        assertEquals(flight, pass1.getPassengerFlight());
     }
 
     @Test

@@ -8,7 +8,7 @@ public class PilotTest {
     Pilot pilot;
     @Before
     public void setUp() {
-        pilot = new Pilot("Hankson", CrewRanks.CAPTAIN, "T0M001");
+        pilot = new Pilot("Hankson", CrewRanks.CAPTAIN, "TOM001");
 
     }
 
