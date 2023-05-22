@@ -51,6 +51,7 @@ public class PlaneTest {
         }
 
         for (int i = 0; i < plane.getCapacity(); i++){
+//            System.out.println("R1: " + randomValues.get(i) + " R2: " + seatNumbers.get(i));
             assertEquals(randomValues.get(i), seatNumbers.get(i));
         }
     }

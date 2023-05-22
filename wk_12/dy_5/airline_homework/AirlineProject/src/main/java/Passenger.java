@@ -1,3 +1,5 @@
+import org.jetbrains.annotations.NotNull;
+
 import java.util.ArrayList;
 
 public class Passenger extends Person{
@@ -26,7 +28,7 @@ public class Passenger extends Person{
         return this.messages.size();
     }
 
-    public void addToFlight(Flight flight){
+    public void addToFlight(@NotNull Flight flight){
         this.flight = flight;
         this.seatCode = flight.getPlane().assignSeatNumber();
     }
