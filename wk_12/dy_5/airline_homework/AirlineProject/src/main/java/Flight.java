@@ -1,3 +1,4 @@
+import java.sql.Array;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 
@@ -67,6 +68,16 @@ public class Flight {
 
     public AirportLocation getDeparture() {
         return this.departure;
+    }
+
+    public int getTotalBaggageWeight() {
+
+        int totalNumBags = this.passengers
+                .stream()
+                .map(x -> x.getNumBags())
+                .reduce(0, (sum, num) -> sum += num);
+        return totalNumBags;
+
     }
 
 

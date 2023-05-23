@@ -83,6 +83,18 @@ public class FlightTest {
     }
 
     @Test
+    public void canCalculateTotalNumberOfPassengerBags() {
+
+        pass1 = new Passenger("LL", 10);
+        Passenger pass2 = new Passenger("JJ", 5);
+
+        flight.addPassenger(pass1);
+        flight.addPassenger(pass2);
+        assertEquals(15, flight.getTotalBaggageWeight());
+
+    }
+
+    @Test
     public void seatCodesAreFirstComeFirstServed() {
         pass1 = new Passenger("LL", 10);
         Passenger pass2 = new Passenger("JJ", 5);
