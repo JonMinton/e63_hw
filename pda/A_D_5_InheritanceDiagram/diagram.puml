@@ -1,0 +1,17 @@
+@startuml
+
+class FloorPlan {
+    #length: double
+    #width: double
+    +getArea(): double
+}
+
+class Room {
+    #length: double
+    #width: double
+    #height: double
+    +getVolume(): double
+}
+
+FloorPlan <|-- Room
+@enduml
