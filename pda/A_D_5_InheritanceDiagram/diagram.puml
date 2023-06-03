@@ -10,6 +10,7 @@ class Room {
     #length: double
     #width: double
     #height: double
+    +getArea(): double
     +getVolume(): double
 }
 
